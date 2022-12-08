@@ -1,10 +1,11 @@
-//! Benchmarking setup for pallet-kitties
+//! Benchmarking setup for pallet-template
 
 use super::*;
-use crate::{Substratekitties as PalletModule, *};
-use frame_benchmarking::{account, benchmarks, impl_benchmark_test_suite};
+
+#[allow(unused)]
+use crate::Pallet as Template;
+use frame_benchmarking::{benchmarks, whitelisted_caller};
 use frame_system::RawOrigin;
-use sp_std::prelude::*;
 
 benchmarks! {
 	do_something {
