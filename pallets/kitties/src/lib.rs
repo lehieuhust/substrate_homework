@@ -37,7 +37,7 @@ pub mod pallet {
 	#[scale_info(skip_type_params(T))]
 	pub struct Kitty<T: Config> {
 		pub dna: Vec<u8>,
-		pub price: u64,
+		pub price: u32,
 		pub gender: Gender,
 		pub owner: T::AccountId,
 		created_date: TimeOf<T>
@@ -162,7 +162,7 @@ pub mod pallet {
 			}
 
 			let mut to_owned = KittiesOwned::<T>::get(&to);
-			to_owned.push(dna.clone());
+			to_owned.try_push(dna.clone());
 			kitty.owner = to.clone();
 
 			// Write updates to storage
